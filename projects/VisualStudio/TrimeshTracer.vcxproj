@@ -28,7 +28,7 @@
     <ProjectGuid>{6121F087-18BF-4606-8D98-86026EE99198}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TrimeshTracer</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
