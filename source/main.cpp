@@ -165,6 +165,7 @@ static void TraceImage(TraceData& data)
     float invHeight = 1.0f / data.screenHeight;
 
     int rayCount = 0;
+	//auto index = 0;// y * data.screenHeight + x * 4;
     // go over the image: each pixel row
     for (uint32_t y = 0; y < data.screenHeight; ++y)
     {
@@ -190,11 +191,13 @@ static void TraceImage(TraceData& data)
             col.z = sqrtf(col.z);
 
             // our image is bytes in 0-255 range, turn our floats into them here and write into the image
-            image[0] = uint8_t(saturate(col.x) * 255.0f);
-            image[1] = uint8_t(saturate(col.y) * 255.0f);
-            image[2] = uint8_t(saturate(col.z) * 255.0f);
-            image[3] = 255;
-            image += 4;
+			auto index = x * 4 + data.screenWidth * 4 * y;
+            image[index] = uint8_t(saturate(col.x) * 255.0f); 
+            image[index + 1] = uint8_t(saturate(col.y) * 255.0f);
+            image[index + 2] = uint8_t(saturate(col.z) * 255.0f);
+            image[index + 3] = 255;
+			//index += 4;
+            //image += 4;
         }
     }
     data.rayCount += rayCount;
